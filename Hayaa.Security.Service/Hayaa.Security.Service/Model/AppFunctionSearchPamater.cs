@@ -6,7 +6,7 @@ using Hayaa.BaseModel;
 /// </summary>
 namespace Hayaa.Security.Service
 {
-    public class AppFuntionSearchPamater : SearchPamaterMariadbBase
+    public class AppFunctionSearchPamater : SearchPamaterMariadbBase
     {
         public int? AppFuntionId { set; get; }
         public List<int?> AppFuntionIdList { set; get; }
@@ -92,7 +92,7 @@ namespace Hayaa.Security.Service
             return sql;
         }
         public byte? Status { set; get; }
-        public List<byte?> StatusList { set; get; }
+        public List<byte> StatusList { set; get; }
         public byte? StatusMax { set; get; }
         public byte? StatusMin { set; get; }
         public void SetStatus(byte? max, byte? min) { this.StatusMax = max; this.StatusMin = min; this.StatusPOT = PamaterOperationType.Between; }
@@ -115,7 +115,7 @@ namespace Hayaa.Security.Service
             return sql;
         }
         public int? AppServiceId { set; get; }
-        public List<int?> AppServiceIdList { set; get; }
+        public List<int> AppServiceIdList { set; get; }
         public int? AppServiceIdMax { set; get; }
         public int? AppServiceIdMin { set; get; }
         public void SetAppServiceId(int? max, int? min) { this.AppServiceIdMax = max; this.AppServiceIdMin = min; this.AppServiceIdPOT = PamaterOperationType.Between; }

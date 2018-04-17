@@ -12,15 +12,17 @@ namespace Hayaa.Security.Service
 {
     public partial class AppFuntionServer : AppFuntionService
     {
-        public FunctionResult<AppFuntion> Create(AppFuntion info)
+        public FunctionResult<AppFunction> Create(AppFunction info)
         {
-            var r = new FunctionResult<AppFuntion>(); int id = AppFuntionDal.Add(info); if (id > 0) { r.Data = info; r.Data.AppFuntionId = id; }
+            var r = new FunctionResult<AppFunction>(); int id = AppFunctionDal.Add(info); if (id > 0) { r.Data = info; r.Data.AppFuntionId = id; }
             return r;
         }
-        public FunctionOpenResult<bool> UpdateByID(AppFuntion info) { var r = new FunctionOpenResult<bool>(); r.Data = AppFuntionDal.Update(info) > 0; return r; }
-        public FunctionOpenResult<bool> DeleteByID(List<int> idList) { var r = new FunctionOpenResult<bool>(); r.Data = AppFuntionDal.Delete(idList); return r; }
-        public FunctionResult<AppFuntion> Get(int Id) { var r = new FunctionResult<AppFuntion>(); r.Data = AppFuntionDal.Get(Id); return r; }
-        public FunctionListResult<AppFuntion> GetList(AppFuntionSearchPamater pamater) { var r = new FunctionListResult<AppFuntion>(); r.Data = AppFuntionDal.GetList(pamater); return r; }
-        public GridPager<AppFuntion> GetPager(GridPagerPamater<AppFuntionSearchPamater> searchParam) { var r = AppFuntionDal.GetGridPager(searchParam); return r; }
+        public FunctionOpenResult<bool> UpdateByID(AppFunction info) { var r = new FunctionOpenResult<bool>(); r.Data = AppFunctionDal.Update(info) > 0; return r; }
+        public FunctionOpenResult<bool> DeleteByID(List<int> idList) { var r = new FunctionOpenResult<bool>(); r.Data = AppFunctionDal.Delete(idList); return r; }
+        public FunctionResult<AppFunction> Get(int Id) { var r = new FunctionResult<AppFunction>(); r.Data = AppFunctionDal.Get(Id); return r; }
+        public FunctionListResult<AppFunction> GetList(AppFunctionSearchPamater pamater) { var r = new FunctionListResult<AppFunction>(); r.Data = AppFunctionDal.GetList(pamater); return r; }
+        public GridPager<AppFunction> GetPager(GridPagerPamater<AppFunctionSearchPamater> searchParam) { var r = AppFunctionDal.GetGridPager(searchParam); return r; }
+
+     
     }
 }

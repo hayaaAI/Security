@@ -6,12 +6,13 @@ using Hayaa.BaseModel;
 /// </summary>
 namespace Hayaa.Security.Service
 {
-    public class AppService : BaseData
+    public partial class AppService : BaseData
     {
         public int AppServiceId { set; get; }
         public String Name { set; get; }
         public String Title { set; get; }
         public int AppId { set; get; }
+        public byte Status { set; get; }
       
     }
 }

@@ -20,7 +20,7 @@ namespace Hayaa.Security.Service.Dao
         internal static int Update(Rel_App_AppFunction info)
         {
             string sql = "update Rel_App_AppFunction set Id=@Id,AppId=@AppId,AppFunctionId=@AppFunctionId where Rel_App_AppFunctionId=@Rel_App_AppFunctionId";
-            return Insert<Rel_App_AppFunction>(con, sql, info);
+            return Update<Rel_App_AppFunction>(con, sql, info);
         }
         internal static bool Delete(List<int> IDs)
         {

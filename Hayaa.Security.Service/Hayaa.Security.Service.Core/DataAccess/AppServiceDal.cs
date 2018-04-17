@@ -14,13 +14,13 @@ namespace Hayaa.Security.Service.Dao
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(AppService info)
         {
-            string sql = "insert into AppService(Name,Title,AppId) values(@Name,@Title,@AppId)";
+            string sql = "insert into AppService(Name,Title,AppId,Status) values(@Name,@Title,@AppId,@Status)";
             return Insert<AppService>(con, sql, info);
         }
         internal static int Update(AppService info)
         {
-            string sql = "update AppService set Name=@Name,Title=@Title,AppId=@AppId where AppServiceId=@AppServiceId";
-            return Insert<AppService>(con, sql, info);
+            string sql = "update AppService set Name=@Name,Title=@Title,AppId=@AppId,Status=@Status where AppServiceId=@AppServiceId";
+            return Update<AppService>(con, sql, info);
         }
         internal static bool Delete(List<int> IDs)
         {
@@ -44,5 +44,7 @@ namespace Hayaa.Security.Service.Dao
             pamater.SearchPamater.PageSize = pamater.PageSize;
             return GetGridPager<AppService>(con, sql, pamater.PageSize, pamater.Current, pamater.SearchPamater);
         }
+
+     
     }
 }

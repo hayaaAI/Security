@@ -94,6 +94,29 @@ namespace Hayaa.Security.Service
             }
             return sql;
         }
+        public byte? Status { set; get; }
+        public List<byte> StatusList { set; get; }
+        public byte? StatusMax { set; get; }
+        public byte? StatusMin { set; get; }
+        public void SetStatus(byte? max, byte? min) { this.StatusMax = max; this.StatusMin = min; this.StatusPOT = PamaterOperationType.Between; }
+        private PamaterOperationType StatusPOT;
+        public void SetStatus(byte? info, PamaterOperationType pot) { this.Status = info; this.StatusPOT = pot; }
+        private String GetStatusSqlForSharp()
+        {
+            String sql = ""; switch (StatusPOT)
+            {
+                case PamaterOperationType.Between: sql = "Status between @StatusMin to @StatusMax"; break;
+                case PamaterOperationType.StringContains: sql = "Status like '%@Status%'"; break;
+                case PamaterOperationType.Equal: sql = "Status=@Status"; break;
+                case PamaterOperationType.GreaterEqual: sql = "Status>=@Status"; break;
+                case PamaterOperationType.GreaterThan: sql = "Status>@Status"; break;
+                case PamaterOperationType.LessEqual: sql = "Status<=@Status"; break;
+                case PamaterOperationType.LessThan: sql = "Status<=@Status"; break;
+                case PamaterOperationType.In: sql = "Status in(" + String.Join(",", this.StatusList) + ")"; break;
+                case PamaterOperationType.StringIn: sql = "Status in('" + String.Join("','", this.StatusList) + "')"; break;
+            }
+            return sql;
+        }
         public DateTime? CreateTime { set; get; }
         public List<DateTime?> CreateTimeList { set; get; }
         public DateTime? CreateTimeMax { set; get; }
