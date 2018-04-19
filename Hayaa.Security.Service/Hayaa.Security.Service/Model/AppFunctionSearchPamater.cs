@@ -9,7 +9,7 @@ namespace Hayaa.Security.Service
     public class AppFunctionSearchPamater : SearchPamaterMariadbBase
     {
         public int? AppFuntionId { set; get; }
-        public List<int?> AppFuntionIdList { set; get; }
+        public List<int> AppFuntionIdList { set; get; }
         public int? AppFuntionIdMax { set; get; }
         public int? AppFuntionIdMin { set; get; }
         public void SetAppFuntionId(int? max, int? min) { this.AppFuntionIdMax = max; this.AppFuntionIdMin = min; this.AppFuntionIdPOT = PamaterOperationType.Between; }

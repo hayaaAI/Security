@@ -17,6 +17,15 @@ namespace Hayaa.SecurityController
         private AppInstanceService appInstanceService = PlatformServiceFactory.Instance.CreateService<AppInstanceService>(AppRoot.GetDefaultAppUser());
         private AppTokenService appTokenService = PlatformServiceFactory.Instance.CreateService<AppTokenService>(AppRoot.GetDefaultAppUser());
         private AppInstanceTokenService appInstanceTokenService = PlatformServiceFactory.Instance.CreateService<AppInstanceTokenService>(AppRoot.GetDefaultAppUser());
+        /// <summary>
+        /// App认证
+        /// 实例Id获取
+        /// token置换
+        /// </summary>
+        /// <param name="appservice">带认证的App特征数据</param>
+        /// <param name="appinstanceid">实例id，可为0</param>
+        /// <param name="t">待认证App的部署token</param>
+        /// <returns></returns>
         [HttpPost]
         public TransactionResult<AppAuthReponse> AppAuth(List<Security.Service.AppService> appservice,int appinstanceid,String t)
         {
@@ -99,6 +108,30 @@ namespace Hayaa.SecurityController
                 r.Code = 101;
                 r.Message = "AppId不能为0";
             }           
+            return r;
+        }
+        [HttpPost]
+        public TransactionResult<List<Security.Service.AppService>> GetAuthority(int appid)
+        {
+            var r = new TransactionResult<List<Security.Service.AppService>>();
+            if (appid == 0)
+            {
+                r.Code = 103;
+                r.Message = "AppId不能为0";
+            }
+            if (appid > 0)
+            {
+                var asResult = appService.GetAuthority(appid);
+                if (asResult.ActionResult && asResult.HavingData)
+                {
+                    r.Data = asResult.Data;
+                }
+                else
+                {
+                    r.Code = 0;
+                    r.Message = "App无授权数据";
+                }
+            }
             return r;
         }
         [HttpPost]

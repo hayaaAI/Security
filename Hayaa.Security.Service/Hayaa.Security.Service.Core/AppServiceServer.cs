@@ -27,6 +27,6 @@ namespace Hayaa.Security.Service
         public FunctionListResult<AppService> GetList(AppServiceSearchPamater pamater) { var r = new FunctionListResult<AppService>(); r.Data = AppServiceDal.GetList(pamater); return r; }
         public GridPager<AppService> GetPager(GridPagerPamater<AppServiceSearchPamater> searchParam) { var r = AppServiceDal.GetGridPager(searchParam); return r; }
 
-      
+       
     }
 }

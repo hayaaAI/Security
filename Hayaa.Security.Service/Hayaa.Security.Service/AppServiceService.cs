@@ -47,5 +47,11 @@ namespace Hayaa.Security.Service
         /// <param name="idList"></param>
         /// <returns></returns>
         FunctionOpenResult<bool> CancleById(List<int> idList);
+        /// <summary>
+        /// 获取授权的权限数据
+        /// </summary>
+        /// <param name="appId">被授权的App</param>
+        /// <returns></returns>
+        FunctionListResult<AppService> GetAuthority(int appId);
     }
 }

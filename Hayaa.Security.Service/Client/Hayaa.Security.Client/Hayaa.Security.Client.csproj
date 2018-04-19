@@ -2,6 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <Authors>hayaaAI</Authors>
+    <Product>hayaaAI</Product>
+    <Company>hayaa</Company>
+    <Description>安全客户端引用插件</Description>
+    <Copyright>©2018 HayaaAI</Copyright>
+    <PackageLicenseUrl>http://l.xieqj.net/license/hayaaai.txt</PackageLicenseUrl>
+    <PackageIconUrl>http://r.xieqj.net/r/ico/hayaaia.ico</PackageIconUrl>
+    <PackageTags>Security</PackageTags>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hayaa.ServicePlatform.Client" Version="1.0.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
+  </ItemGroup>
 
 </Project>
