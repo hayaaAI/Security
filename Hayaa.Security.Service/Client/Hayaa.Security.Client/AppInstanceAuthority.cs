@@ -1,4 +1,7 @@
-﻿using Hayaa.ServicePlatform.Client;
+﻿using Hayaa.BaseModel.Model;
+using Hayaa.Common;
+using Hayaa.Security.Client.Config;
+using Hayaa.ServicePlatform.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -9,7 +12,7 @@ namespace Hayaa.Security.Client
 {
     class AppInstanceAuthority
     {
-        public static void OnActionExecuting(ActionExecutingContext context)
+        public static void AppInstanceAuthOnActionExecuting(ActionExecutingContext context)
         {
             bool isPost = context.HttpContext.Request.Method.ToLower().Equals("post");
             String appInstanceToken = isPost ? context.HttpContext.Request.Form["apt"] : context.HttpContext.Request.Query["apt"];
@@ -39,6 +42,29 @@ namespace Hayaa.Security.Client
                 else
                 {
                     context.Result = new ContentResult() { Content = "无授权数据" };
+                }
+            }
+            else
+            {
+                context.Result = new ContentResult() { Content = "无授权标识" };
+            }
+
+        }
+        public static void AppInstanceBaseAuthOnActionExecuting(ActionExecutingContext context)
+        {
+            bool isPost = context.HttpContext.Request.Method.ToLower().Equals("post");
+            String appInstanceToken = isPost ? context.HttpContext.Request.Form["apt"] : context.HttpContext.Request.Query["apt"];
+            String strAppInstanceId = isPost ? context.HttpContext.Request.Form["aid"] : context.HttpContext.Request.Query["aid"];
+            int appInstanceId = 0;
+            int.TryParse(strAppInstanceId, out appInstanceId);
+            if (appInstanceId > 0)
+            {
+                var urlParamater = new Dictionary<string, string>();
+                String response = HttpHelper.Transaction(ConfigHelper.Instance.GetComponentConfig().AppInstanceSecurityBaseAuthUrl, urlParamater);
+                TransactionResult<Boolean> serverResult = JsonHelper.DeserializeSafe<TransactionResult<Boolean>>(response);
+                if (serverResult.Code != 0)
+                {
+                    context.Result = new ContentResult() { Content = "未授权访问" };
                 }
             }
             else

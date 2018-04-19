@@ -12,9 +12,13 @@
     <PackageLicenseUrl>http://l.xieqj.net/license/hayaaai.txt</PackageLicenseUrl>
     <PackageIconUrl>http://r.xieqj.net/r/ico/hayaaia.ico</PackageIconUrl>
     <PackageTags>Security</PackageTags>
+    <Version>1.0.0.0</Version>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.14" />
+    <PackageReference Include="Hayaa.Common" Version="1.0.0.4" />
+    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.6" />
     <PackageReference Include="Hayaa.ServicePlatform.Client" Version="1.0.0.5" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
   </ItemGroup>

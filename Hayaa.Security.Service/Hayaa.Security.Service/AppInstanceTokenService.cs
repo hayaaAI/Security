@@ -15,5 +15,12 @@ namespace Hayaa.Security.Service
         /// <param name="appToken">App的token，配置在App本地</param>
         /// <returns></returns>
         FunctionResult<AppInstanceToken> ExchangeToken(int appInstanceId,String appToken);
+        /// <summary>
+        /// 通过实例id与实例token获取token信息
+        /// </summary>
+        /// <param name="appInstanceId">实例id</param>
+        /// <param name="token">实例token</param>
+        /// <returns></returns>
+        FunctionResult<AppInstanceToken> Get(int appInstanceId,String token);
     }
 }

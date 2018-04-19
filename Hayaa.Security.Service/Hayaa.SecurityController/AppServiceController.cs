@@ -53,7 +53,7 @@ namespace Hayaa.SecurityController
                         if (compareResult.Data)//服务特征匹配
                         {
                             //验证token
-                          var atsResult=  appTokenService.Get(appId, t);
+                          var atsResult=  appTokenService.GetNormal(appId, t);
                             if (atsResult.ActionResult && atsResult.HavingData)
                             {
                                 //新实例申请实例Id

@@ -14,6 +14,11 @@ namespace Hayaa.Security.Service.Dao
         {
             string sql = "select * from AppInstanceToken  where Status=1 and AppInstanceId=@AppInstanceId";
             return Get<AppInstanceToken>(con, sql, new { AppInstanceId = Id });
-        }       
+        }
+        internal static AppInstanceToken GetByAppInstanceIdAndToken(int Id,String token)
+        {
+            string sql = "select * from AppInstanceToken  where AppInstanceId=@AppInstanceId and Token=@Token";
+            return Get<AppInstanceToken>(con, sql, new { AppInstanceId = Id, Token=token });
+        }
     }
 }

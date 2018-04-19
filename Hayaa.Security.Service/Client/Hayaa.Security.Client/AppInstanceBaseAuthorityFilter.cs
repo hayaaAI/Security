@@ -5,17 +5,17 @@ using System.Text;
 
 namespace Hayaa.Security.Client
 {
-    public class AppInstanceAuthorityFilter : IActionFilter
+  public  class AppInstanceBaseAuthorityFilter : IActionFilter
     {
         public void OnActionExecuting(ActionExecutingContext context)
         {
-            AppInstanceAuthority.AppInstanceAuthOnActionExecuting(context);
+            AppInstanceAuthority.AppInstanceBaseAuthOnActionExecuting(context);
         }
         public void OnActionExecuted(ActionExecutedContext context)
         {
-           
+            
         }
 
-       
+     
     }
 }

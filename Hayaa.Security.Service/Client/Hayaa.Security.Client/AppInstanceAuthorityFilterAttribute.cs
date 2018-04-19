@@ -8,7 +8,7 @@ namespace Hayaa.Security.Client
     {
         public override void OnActionExecuting(ActionExecutingContext context)
         {
-            AppInstanceAuthority.OnActionExecuting(context);
+            AppInstanceAuthority.AppInstanceAuthOnActionExecuting(context);
         }
     }
 }

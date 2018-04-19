@@ -10,7 +10,7 @@ namespace Hayaa.Security.Service
 {
     public partial class AppTokenServer 
     {
-        public FunctionResult<AppToken> Get(int appId, string token)
+        public FunctionResult<AppToken> GetNormal(int appId, string token)
         {
             var r = new FunctionResult<AppToken>();
             r.Data = AppTokenDal.Get(appId, token);

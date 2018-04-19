@@ -35,5 +35,11 @@ namespace Hayaa.Security.Service
         {
             return Guid.NewGuid().ToString().Replace("-","");
         }
+        public FunctionResult<AppInstanceToken> Get(int appInstanceId, string token)
+        {
+            var r = new FunctionResult<AppInstanceToken>();
+            r.Data = AppInstanceTokenDal.GetByAppInstanceIdAndToken(appInstanceId, token);
+            return r;
+        }
     }
 }
