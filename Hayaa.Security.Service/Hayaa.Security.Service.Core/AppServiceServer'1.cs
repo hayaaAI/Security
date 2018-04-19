@@ -12,7 +12,7 @@ namespace Hayaa.Security.Service
 {
     public partial class AppServiceServer
     {
-        public FunctionOpenResult<bool> IsCompare(List<AppService> target, int appId, int appInstanceId)
+        public FunctionOpenResult<bool> IsCompare(List<AppService> target, int appId)
         {
             var r = new FunctionOpenResult<bool>();
             List<AppService> source = GetAppServiceByAppId(appId);
@@ -49,20 +49,7 @@ namespace Hayaa.Security.Service
             }
             else
                 r.Data = false;
-            if (!(Rel_AppInstance_AppServiceDal.Update(new Rel_AppInstance_AppService()
-            {
-                AppInstanceId = appInstanceId,
-                AppService = JsonHelper.Serlaize<List<AppService>>(target),              
-                IsCompare = r.Data
-            }) > 0))
-            {
-                Rel_AppInstance_AppServiceDal.Add(new Rel_AppInstance_AppService()
-                {
-                    AppInstanceId = appInstanceId,
-                    AppService = JsonHelper.Serlaize<List<AppService>>(target),                 
-                    IsCompare = r.Data
-                });
-            }
+           
             return r;
         }
 
@@ -110,6 +97,26 @@ namespace Hayaa.Security.Service
             }
             return r;
         }
+        public FunctionOpenResult<bool> RecordAppService(List<AppService> data, int appInstanceId)
+        {
+            FunctionOpenResult<bool> r = new FunctionOpenResult<bool>();
+            r.Data = Rel_AppInstance_AppServiceDal.UpdateAppInstanceId(new Rel_AppInstance_AppService()
+            {
+                AppInstanceId = appInstanceId,
+                AppService = JsonHelper.Serlaize<List<AppService>>(data),
+                IsCompare = r.Data
+            }) > 0;
+            if (!r.Data)
+            {
+                r.Data = Rel_AppInstance_AppServiceDal.Add(new Rel_AppInstance_AppService()
+                {
+                    AppInstanceId = appInstanceId,
+                    AppService = JsonHelper.Serlaize<List<AppService>>(data),
+                    IsCompare = r.Data
+                }) > 0;
+            }
+            return r;
+        }
 
         public FunctionOpenResult<bool> Add(List<AppService> data, int appInstanceId)
         {
@@ -136,7 +143,7 @@ namespace Hayaa.Security.Service
             r.Data = false;
             if (data != null)
             {
-                Rel_AppInstance_AppServiceDal.Update(new Rel_AppInstance_AppService()
+                Rel_AppInstance_AppServiceDal.UpdateAppInstanceId(new Rel_AppInstance_AppService()
                 {
                     AppInstanceId = appInstanceId,
                     AppService = JsonHelper.Serlaize<List<AppService>>(data)

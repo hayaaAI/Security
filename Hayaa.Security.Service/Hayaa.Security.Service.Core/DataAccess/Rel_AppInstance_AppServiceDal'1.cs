@@ -10,7 +10,7 @@ namespace Hayaa.Security.Service.Dao
     internal partial class Rel_AppInstance_AppServiceDal
     {
        
-        internal static int Update(Rel_AppInstance_AppService info)
+        internal static int UpdateAppInstanceId(Rel_AppInstance_AppService info)
         {
             string sql = "update Rel_AppInstance_AppService set AppService=@AppService where AppInstanceId=@AppInstanceId";
             return Update<Rel_AppInstance_AppService>(con, sql, info);

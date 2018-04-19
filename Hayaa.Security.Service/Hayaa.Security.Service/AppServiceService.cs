@@ -19,7 +19,14 @@ namespace Hayaa.Security.Service
         /// <param name="target">服务实例的功能数据</param>
         /// <param name="appId">AppId</param>
         /// <returns></returns>
-        FunctionOpenResult<bool> IsCompare(List<AppService> target, int appId, int appInstanceId);
+        FunctionOpenResult<bool> IsCompare(List<AppService> target, int appId);
+        /// <summary>
+        /// 记录实例的服务数据
+        /// </summary>
+        /// <param name="data">实例的服务数据</param>
+        /// <param name="appInstanceId">App实例Id</param>
+        /// <returns></returns>
+        FunctionOpenResult<bool> RecordAppService(List<AppService> data, int appInstanceId);
         /// <summary>
         /// 依据一个实例的服务功能添加数据
         /// </summary>
