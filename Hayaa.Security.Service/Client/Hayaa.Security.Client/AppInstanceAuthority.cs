@@ -1,7 +1,6 @@
 ﻿using Hayaa.BaseModel.Model;
 using Hayaa.Common;
 using Hayaa.Security.Client.Config;
-using Hayaa.ServicePlatform.Client;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -21,12 +20,12 @@ namespace Hayaa.Security.Client
             int.TryParse(strAppInstanceId, out appInstanceId);
             if (appInstanceId > 0)
             {
-              var authority=  AppRoot.GetAuthority();
+              var authority= SecurityRoot.GetAuthority();
                 if (authority != null)
                 {                  
                       String actionName= context.ActionDescriptor.DisplayName;
                       String serviceName = context.RouteData.Values["Controller"].ToString();
-                    Dictionary<string, List<string>> authorityData = AppRoot.GetAuthority();
+                    Dictionary<string, List<string>> authorityData = SecurityRoot.GetAuthority();
                     if (authorityData.ContainsKey(serviceName))
                     {
                         if (!authorityData[serviceName].Exists(af=>af==actionName)) 
