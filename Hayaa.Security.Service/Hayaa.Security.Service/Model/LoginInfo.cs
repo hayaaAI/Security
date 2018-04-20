@@ -6,12 +6,12 @@ using Hayaa.BaseModel;
 /// </summary>
 namespace Hayaa.Security.Service
 {
-    public class JobToken : BaseData
+    public class LoginInfo : BaseData
     {
-        public int JobTokenId { set; get; }
-        public int JobId { set; get; }
+        public int LoginInfoId { set; get; }
+        public String LoginKey { set; get; }
         public int UserId { set; get; }
-        public String Token { set; get; }
+        public int Status { set; get; }
 
     }
 }
