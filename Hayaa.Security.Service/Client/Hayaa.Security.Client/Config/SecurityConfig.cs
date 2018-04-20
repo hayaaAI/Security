@@ -19,6 +19,10 @@ namespace Hayaa.Security.Client.Config
         /// App实例基础授权地址
         /// </summary>
         public String AppInstanceSecurityBaseAuthUrl { set; get; }
+        /// <summary>
+        /// 缓存的配置名
+        /// </summary>
+        public String CacheConfigName { set; get; }
         public AppSettings AppSettings { set; get; }
         public ConnectionStrings ConnectionStrings { set; get; }
     }

@@ -53,5 +53,11 @@ namespace Hayaa.Security.Service
         /// <param name="appId">被授权的App</param>
         /// <returns></returns>
         FunctionListResult<AppService> GetAuthority(int appId);
+        /// <summary>
+        /// 获取岗位授权的数据
+        /// </summary>
+        /// <param name="jobId">被授权的岗位</param>
+        /// <returns></returns>
+        FunctionListResult<AppService> GetJobAuthority(int jobId);
     }
 }

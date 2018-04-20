@@ -14,13 +14,13 @@ namespace Hayaa.Security.Client
         public static void Init(int appId)
         {
             g_authorityData = GetAuthority(appId);
+           
         }
         public static void Reset(int appId)
         {
             Init(appId);
         }
-        private static Dictionary<String, List<String>> g_authorityData = null;
-
+        private static Dictionary<String, List<String>> g_authorityData = null;     
         private static Dictionary<String, List<String>> GetAuthority(int appId)
         {
             Dictionary<String, List<String>> result = new Dictionary<string, List<string>>();

@@ -207,7 +207,8 @@ namespace Hayaa.Security.Service
         public FunctionListResult<AppService> GetAuthority(int appId)
         {
             var r = new FunctionListResult<AppService>();
-            var pamater = new AppGrantSearchPamater() { AppId=appId };
+            var pamater = new AppGrantSearchPamater();
+            pamater.SetAppId(appId, PamaterOperationType.Equal);
             var list = AppGrantDal.GetList(pamater);
             List<AppService> asList = null;
             r.Data = asList;
@@ -226,6 +227,34 @@ namespace Hayaa.Security.Service
                         asList.ForEach(t => {
                             t.AppFunctions = appFunctions.FindAll(af => af.AppServiceId == t.AppServiceId);
                         });                       
+                    }
+                }
+            }
+            return r;
+        }
+        public FunctionListResult<AppService> GetJobAuthority(int jobId)
+        {
+            var r = new FunctionListResult<AppService>();
+            var pamater = new JobGrantSearchPamater();
+            pamater.SetJobId(jobId, PamaterOperationType.Equal);
+            var list = JobGrantDal.GetList(pamater);
+            List<AppService> asList = null;
+            r.Data = asList;
+            if (list != null)
+            {
+                asList = list.Select(a => new AppService() { AppServiceId = a.AppServiceId, AppFunctions = new List<AppFunction>() }).ToList();
+                var functionPamater = new AppFunctionSearchPamater();
+                functionPamater.SetAppFuntionId(null, PamaterOperationType.In);
+                functionPamater.AppFuntionIdList = list.Select(a => a.AppFunctionId).ToList();
+                functionPamater.SetStatus(1, PamaterOperationType.Equal);
+                var appFunctions = AppFunctionDal.GetList(functionPamater);
+                if (appFunctions != null)
+                {
+                    if (asList != null)
+                    {
+                        asList.ForEach(t => {
+                            t.AppFunctions = appFunctions.FindAll(af => af.AppServiceId == t.AppServiceId);
+                        });
                     }
                 }
             }
