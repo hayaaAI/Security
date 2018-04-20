@@ -6,6 +6,6 @@ namespace Hayaa.Security.Client.Config
 {
     class DefineTable
     {
-        public readonly static int ServicePlatformComponetID = 10012;
+        public readonly static int SecurityClientComponetID = 10012;
     }
 }

@@ -15,6 +15,10 @@ namespace Hayaa.Security.Client
         {
             g_authorityData = GetAuthority(appId);
         }
+        public static void Reset(int appId)
+        {
+            Init(appId);
+        }
         private static Dictionary<String, List<String>> g_authorityData = null;
 
         private static Dictionary<String, List<String>> GetAuthority(int appId)

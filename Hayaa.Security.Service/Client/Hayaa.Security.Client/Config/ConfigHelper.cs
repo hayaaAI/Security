@@ -8,7 +8,7 @@ namespace Hayaa.Security.Client.Config
     internal class ConfigHelper : ConfigTool<SecurityConfig, SecurityRootConfig>
     {
         private static ConfigHelper _instance = new ConfigHelper();
-        private ConfigHelper() : base(DefineTable.ServicePlatformComponetID)
+        private ConfigHelper() : base(DefineTable.SecurityClientComponetID)
         {
 
         }
