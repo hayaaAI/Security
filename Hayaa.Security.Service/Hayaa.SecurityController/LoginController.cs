@@ -12,7 +12,7 @@ namespace Hayaa.SecurityController
     public class LoginController : Controller
     {
         private LoginService loginService = PlatformServiceFactory.Instance.CreateService<LoginService>(AppRoot.GetDefaultAppUser());
-        [HttpPost]
+        [HttpPost("{loginkey?}/{pwd?}")]
         public TransactionResult<String> Login(String loginkey, String pwd)
         {
             var r = new TransactionResult<String>();
@@ -29,6 +29,23 @@ namespace Hayaa.SecurityController
             return r;
         }
         [HttpPost]
+        public TransactionResult<Boolean> IsLogin()
+        {
+            var r = new TransactionResult<Boolean>();
+            //var lsReulst = loginService.IsLogin();
+            //if (lsReulst.ActionResult && lsReulst.HavingData)
+            //{
+            //    r.Data = lsReulst.Data.Token;
+            //}
+            //else
+            //{
+            //    r.Code = 103;
+            //    r.Message = lsReulst.ErrorMsg;
+            //}
+            r.Data = true;
+            return r;
+        }
+        [HttpPost("{mobile?}/{code?}")]
         public TransactionResult<String> MobileLogin(String mobile, String code)
         {
             var r = new TransactionResult<String>();
