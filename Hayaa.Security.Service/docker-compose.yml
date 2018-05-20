@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  hayaa.securityservicesite:
+    image: ${DOCKER_REGISTRY}hayaasecurityservicesite
+    build:
+      context: .
+      dockerfile: Hayaa.SecurityServiceSite/Dockerfile

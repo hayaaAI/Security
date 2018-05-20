@@ -5,13 +5,13 @@ VisualStudioVersion = 15.0.27428.2037
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{C22DA24D-1505-4DEA-AFEB-CC0495C0A4E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.Security.Client", "Client\Hayaa.Security.Client\Hayaa.Security.Client.csproj", "{83472DE9-4B41-4C3B-8977-5AA5C3A8537E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.Security.Client", "Client\Hayaa.Security.Client\Hayaa.Security.Client.csproj", "{83472DE9-4B41-4C3B-8977-5AA5C3A8537E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Service", "Service", "{14ED5CA0-5D3D-4BC5-99DA-87E50D95B900}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.Security.Service", "Hayaa.Security.Service\Hayaa.Security.Service.csproj", "{AD108275-9CD3-4D96-A502-FF0126EE03E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.Security.Service", "Hayaa.Security.Service\Hayaa.Security.Service.csproj", "{AD108275-9CD3-4D96-A502-FF0126EE03E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.Security.Service.Core", "Hayaa.Security.Service.Core\Hayaa.Security.Service.Core.csproj", "{9B4DC845-FDB2-47B9-9B56-0AED00BDC555}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.Security.Service.Core", "Hayaa.Security.Service.Core\Hayaa.Security.Service.Core.csproj", "{9B4DC845-FDB2-47B9-9B56-0AED00BDC555}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sql", "Sql", "{BADF1CD0-ED07-416D-84CB-AFF87E360DD1}"
 EndProject
@@ -22,7 +22,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iteration1", "iteration1", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{94D79FD8-7674-4E5B-A119-FFE1BB4167A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject", "XUnitTestProject\XUnitTestProject.csproj", "{37E74175-7ACC-43A8-A205-0B0F0FF467CE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestProject", "XUnitTestProject\XUnitTestProject.csproj", "{37E74175-7ACC-43A8-A205-0B0F0FF467CE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Component", "Component", "{15EB990D-5E85-456A-950E-D97BD32D8F04}"
 EndProject
@@ -30,7 +30,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSite", "WebSite", "{3287
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", "{A90A6037-2F21-46D4-8B51-08D96ECEADBC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.SecurityController", "Hayaa.SecurityController\Hayaa.SecurityController.csproj", "{D20954EB-E24D-45F7-AF13-E8C9B0319A73}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.SecurityController", "Hayaa.SecurityController\Hayaa.SecurityController.csproj", "{D20954EB-E24D-45F7-AF13-E8C9B0319A73}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Site", "Site", "{78E47633-996C-423C-A4C7-06137EF5A55C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.SecurityServiceSite", "Hayaa.SecurityServiceSite\Hayaa.SecurityServiceSite.csproj", "{A99A7FDE-2484-4F1C-B5BF-944F315B8EE5}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{2BEDFE09-5CB7-4A41-AFDF-2F3F8A7EDB12}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -58,6 +64,14 @@ Global
 		{D20954EB-E24D-45F7-AF13-E8C9B0319A73}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D20954EB-E24D-45F7-AF13-E8C9B0319A73}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D20954EB-E24D-45F7-AF13-E8C9B0319A73}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A99A7FDE-2484-4F1C-B5BF-944F315B8EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A99A7FDE-2484-4F1C-B5BF-944F315B8EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A99A7FDE-2484-4F1C-B5BF-944F315B8EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A99A7FDE-2484-4F1C-B5BF-944F315B8EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2BEDFE09-5CB7-4A41-AFDF-2F3F8A7EDB12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2BEDFE09-5CB7-4A41-AFDF-2F3F8A7EDB12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2BEDFE09-5CB7-4A41-AFDF-2F3F8A7EDB12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2BEDFE09-5CB7-4A41-AFDF-2F3F8A7EDB12}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +84,8 @@ Global
 		{37E74175-7ACC-43A8-A205-0B0F0FF467CE} = {94D79FD8-7674-4E5B-A119-FFE1BB4167A8}
 		{A90A6037-2F21-46D4-8B51-08D96ECEADBC} = {3287F111-6DCD-46E9-891F-F26F2AC52F2B}
 		{D20954EB-E24D-45F7-AF13-E8C9B0319A73} = {A90A6037-2F21-46D4-8B51-08D96ECEADBC}
+		{78E47633-996C-423C-A4C7-06137EF5A55C} = {3287F111-6DCD-46E9-891F-F26F2AC52F2B}
+		{A99A7FDE-2484-4F1C-B5BF-944F315B8EE5} = {78E47633-996C-423C-A4C7-06137EF5A55C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC02335B-DF37-4482-BBD2-717AE0870B6B}

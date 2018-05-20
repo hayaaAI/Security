@@ -16,10 +16,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.14" />
-    <PackageReference Include="Hayaa.CacheKeyStatic" Version="1.0.0" />
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.15" />
+    <PackageReference Include="Hayaa.CacheKeyStatic" Version="1.0.0.1" />
     <PackageReference Include="Hayaa.Common" Version="1.0.0.5" />
-    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.6" />
+    <PackageReference Include="Hayaa.ConfigSeed.Netcore" Version="1.0.0.14" />
     <PackageReference Include="Hayaa.Redis.Client" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
   </ItemGroup>
