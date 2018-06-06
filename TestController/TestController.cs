@@ -3,10 +3,10 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Hayaa.SecurityController
+namespace Hayaa.TestController
 {
-    [Route("api/[controller]")]
-    public  class TestController: Controller
+    [Route("api/[controller]/[action]")]
+    public  class Test1Controller: Controller
     {
         [HttpGet]
         public String Get()

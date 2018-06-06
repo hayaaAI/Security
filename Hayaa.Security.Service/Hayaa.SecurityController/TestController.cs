@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Hayaa.SecurityController
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public  class TestController: Controller
     {
         [HttpGet]
