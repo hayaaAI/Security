@@ -6,6 +6,6 @@ namespace Hayaa.Security.Client.Config
 {
     class DefineTable
     {
-        public readonly static int AppSecurityClientComponetID = 10013;
+        public const String CacheName = "default";
     }
 }

@@ -40,6 +40,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.AppSecurity.Client", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.SecurityServiceSite", "Hayaa.SecurityServiceSite\Hayaa.SecurityServiceSite.csproj", "{F5340824-1083-4BDA-BCD8-4129BA4CF8C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.ConfigSecurity.Client", "Client\Hayaa.ConfigSecurity.Client\Hayaa.ConfigSecurity.Client.csproj", "{A7234D55-2C80-4E34-BC2A-1F33865C413A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -78,6 +80,10 @@ Global
 		{F5340824-1083-4BDA-BCD8-4129BA4CF8C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5340824-1083-4BDA-BCD8-4129BA4CF8C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5340824-1083-4BDA-BCD8-4129BA4CF8C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7234D55-2C80-4E34-BC2A-1F33865C413A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7234D55-2C80-4E34-BC2A-1F33865C413A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7234D55-2C80-4E34-BC2A-1F33865C413A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7234D55-2C80-4E34-BC2A-1F33865C413A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{78E47633-996C-423C-A4C7-06137EF5A55C} = {3287F111-6DCD-46E9-891F-F26F2AC52F2B}
 		{99759494-00E9-41D8-AE32-AF6B41B633CF} = {C22DA24D-1505-4DEA-AFEB-CC0495C0A4E9}
 		{F5340824-1083-4BDA-BCD8-4129BA4CF8C7} = {78E47633-996C-423C-A4C7-06137EF5A55C}
+		{A7234D55-2C80-4E34-BC2A-1F33865C413A} = {C22DA24D-1505-4DEA-AFEB-CC0495C0A4E9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {EC02335B-DF37-4482-BBD2-717AE0870B6B}

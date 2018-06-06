@@ -3,7 +3,7 @@
   "SeedServerUrl": "http://test.remoteconfig.xieqj.net/api/config/SendConfig",
   "LocalConfigDirectoryPath": "~/config",
   "IsVirtualPath": true,
-  "SecurityToken": "",
+  "SecurityToken": "123456",
   "AppID": "2",
   "AppInstanceID": 0,
   "AppConfigSolutionID": "c136a187-1b54-4678-901c-d9e3d583cf62",
