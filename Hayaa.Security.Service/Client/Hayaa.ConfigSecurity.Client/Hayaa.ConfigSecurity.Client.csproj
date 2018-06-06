@@ -9,6 +9,10 @@
     <Company>Hayaa</Company>
     <Product>HayaaAI</Product>
     <PackageTags>ConfigSecurity</PackageTags>
+    <Description>配置服务安全客户端</Description>
+    <Copyright>©2018 HayaaAI</Copyright>
+    <PackageLicenseUrl>http://l.xieqj.net/license/hayaaai.txt</PackageLicenseUrl>
+    <PackageIconUrl>http://r.xieqj.net/r/ico/hayaaia.ico</PackageIconUrl>
   </PropertyGroup>
 
   <ItemGroup>
