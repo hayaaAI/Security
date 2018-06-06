@@ -12,11 +12,7 @@ namespace Hayaa.Security.Service
 {
     public partial class AppTokenServer : AppTokenService
     {
-        public FunctionResult<AppToken> Create(AppToken info)
-        {
-            var r = new FunctionResult<AppToken>(); int id = AppTokenDal.Add(info); if (id > 0) { r.Data = info; r.Data.AppTokenId = id; }
-            return r;
-        }
+      
         public FunctionOpenResult<bool> UpdateByID(AppToken info) { var r = new FunctionOpenResult<bool>(); r.Data = AppTokenDal.Update(info) > 0; return r; }
         public FunctionOpenResult<bool> DeleteByID(List<int> idList) { var r = new FunctionOpenResult<bool>(); r.Data = AppTokenDal.Delete(idList); return r; }
         public FunctionResult<AppToken> Get(int Id) { var r = new FunctionResult<AppToken>(); r.Data = AppTokenDal.Get(Id); return r; }

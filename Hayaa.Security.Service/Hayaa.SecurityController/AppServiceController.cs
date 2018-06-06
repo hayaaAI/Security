@@ -11,7 +11,7 @@ using Hayaa.SecurityController.Model;
 namespace Hayaa.SecurityController
 {
     [Route("api/[controller]")]
-    public class AppServiceController
+    public partial class AppServiceController : Controller
     {
         private AppServiceService appService = PlatformServiceFactory.Instance.CreateService<AppServiceService>(AppRoot.GetDefaultAppUser());
         private AppInstanceService appInstanceService = PlatformServiceFactory.Instance.CreateService<AppInstanceService>(AppRoot.GetDefaultAppUser());

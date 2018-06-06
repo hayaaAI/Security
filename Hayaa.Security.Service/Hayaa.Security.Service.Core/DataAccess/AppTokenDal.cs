@@ -14,8 +14,8 @@ namespace Hayaa.Security.Service.Dao
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
         internal static int Add(AppToken info)
         {
-            string sql = "insert into AppToken(AppId,Token,Status) values(@AppId,@Token,@Status)";
-            return Insert<AppToken>(con, sql, info);
+            string sql = "insert into AppToken(AppId,Token,Status) values(@AppId,@Token,@Status);select @@IDENTITY;";
+            return InsertWithReturnID<AppToken,int>(con, sql, info);
         }
         internal static int Update(AppToken info)
         {

@@ -61,5 +61,21 @@ namespace Hayaa.SecurityController
             }
             return r;
         }
+        [HttpPost("{key?}/{pwd?}/{userId?}")]
+        public TransactionResult<Boolean> Reg(String key, String pwd,int userId)
+        {
+            var r = new TransactionResult<Boolean>();
+            var lsReulst = loginService.Reg(key, pwd, userId);
+            if (lsReulst.ActionResult)
+            {
+                r.Data = lsReulst.Data;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = lsReulst.ErrorMsg;
+            }
+            return r;
+        }
     }
 }

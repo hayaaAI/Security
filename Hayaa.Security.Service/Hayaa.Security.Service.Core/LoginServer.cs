@@ -85,5 +85,20 @@ namespace Hayaa.Security.Service.Core
             }
             return r;
         }
+
+        public FunctionOpenResult<bool> Reg(string key, string pwd,int userId)
+        {
+            FunctionOpenResult<bool> r = new FunctionOpenResult<bool>();
+           int loginInfoId= LoginInfoDal.Insert(new LoginInfo() { LoginKey = key, UserId = userId, Status = 1 });
+            if (loginInfoId>0)
+            {
+                r.Data=LoginPwdDal.Add(new LoginPwdInfo() {
+                     LoginInfoId= loginInfoId,
+                     LoginPwd=pwd,
+                     Status=true
+                },false)>0;
+            }
+            return r;
+        }
     }
 }

@@ -15,5 +15,11 @@ namespace Hayaa.Security.Service
         /// <param name="token"></param>
         /// <returns></returns>
         FunctionResult<AppToken> GetNormal(int appId,String token);
+        /// <summary>
+        /// 依据AppId获取关联token
+        /// </summary>
+        /// <param name="appId"></param>
+        /// <returns></returns>
+        FunctionResult<AppToken> GetByAppId(int appId);
     }
 }

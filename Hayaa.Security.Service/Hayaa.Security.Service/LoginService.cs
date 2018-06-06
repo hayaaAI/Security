@@ -21,5 +21,12 @@ namespace Hayaa.Security.Service
         /// <param name="code"></param>
         /// <returns></returns>
         FunctionResult<JobToken> MobileLogin(String mobile, String code);
+        /// <summary>
+        /// 注册用户信息
+        /// </summary>
+        /// <param name="key">人员登陆凭证</param>
+        /// <param name="pwd">密码</param>
+        /// <returns></returns>
+        FunctionOpenResult<Boolean> Reg(string key, string pwd,int userId);
     }
 }
