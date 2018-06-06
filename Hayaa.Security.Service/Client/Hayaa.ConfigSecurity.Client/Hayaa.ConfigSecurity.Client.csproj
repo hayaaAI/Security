@@ -20,11 +20,8 @@
     <PackageReference Include="Hayaa.Common" Version="1.0.0.5" />
     <PackageReference Include="Hayaa.Netcore.SessionEncryption" Version="1.0.0" />
     <PackageReference Include="Hayaa.Redis.Client" Version="1.0.0.1" />
+    <PackageReference Include="Hayaa.Security.Service" Version="1.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.0.3" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\Hayaa.Security.Service\Hayaa.Security.Service.csproj" />
   </ItemGroup>
 
 </Project>
