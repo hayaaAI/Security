@@ -17,140 +17,71 @@ namespace Hayaa.SecurityController
         private AppInstanceService appInstanceService = PlatformServiceFactory.Instance.CreateService<AppInstanceService>(AppRoot.GetDefaultAppUser());
         private AppTokenService appTokenService = PlatformServiceFactory.Instance.CreateService<AppTokenService>(AppRoot.GetDefaultAppUser());
         private AppInstanceTokenService appInstanceTokenService = PlatformServiceFactory.Instance.CreateService<AppInstanceTokenService>(AppRoot.GetDefaultAppUser());
-        /// <summary>
-        /// App认证
-        /// 实例Id获取
-        /// token置换
-        /// </summary>
-        /// <param name="appservice">带认证的App特征数据</param>
-        /// <param name="appinstanceid">实例id，可为0</param>
-        /// <param name="t">待认证App的部署token</param>
-        /// <returns></returns>
         [HttpPost]
-        public TransactionResult<AppAuthReponse> AppAuth(List<Security.Service.AppService> appservice,int appinstanceid,String t)
+        [Desc("GetAppServiceByAppId", "获取app的服务列表","根据appId")]
+        public TransactionResult<Security.Service.AppService> GetAppServiceByAppId(int appId)
         {
-            TransactionResult<AppAuthReponse> r = new TransactionResult<AppAuthReponse>();
-            var temp = appservice.Select(ap => ap.AppId).Distinct();
-            if (temp.Count() > 1)
+            TransactionResult<Security.Service.AppService> r = new TransactionResult<Security.Service.AppService>();
+            var serviceResult = appService.Get(appId);
+            if (serviceResult.ActionResult)
             {
-                r.Code = 102;
-                r.Message = "AppId必须只有一个";
-                return r;
-            }
-            int appId = temp.FirstOrDefault();
-            if (appId > 0)
-            {
-                //检查是否已有服务数据
-              var existResult=  appService.ExistAppService(appId);
-                if (existResult.ActionResult && existResult.Data)
-                {
-                    //检查是否匹配
-                    var compareResult = appService.IsCompare(appservice, appId);
-                    if (compareResult.ActionResult)
-                    {
-                        r.Code = compareResult.Data ? 0 : 103;
-                        r.Message = compareResult.Data ? "" : "服务数据不匹配";
-                        if (compareResult.Data)//服务特征匹配
-                        {
-                            //验证token
-                          var atsResult=  appTokenService.GetNormal(appId, t);
-                            if (atsResult.ActionResult && atsResult.HavingData)
-                            {
-                                //新实例申请实例Id
-                                if (appinstanceid == 0)
-                                {
-                                   var aisResult= appInstanceService.Create(new AppInstance() { AppId=appId });
-                                    if (aisResult.ActionResult && aisResult.HavingData)
-                                    {
-                                        appinstanceid = aisResult.Data.AppInstanceId;
-                                    }
-                                }
-                                //替换token
-                                var aitsResult =   appInstanceTokenService.ExchangeToken(appinstanceid, t);
-                                if (aitsResult.ActionResult && aitsResult.HavingData)
-                                {
-                                    r.Data = new AppAuthReponse()
-                                    {
-                                        AppInstanceId = appinstanceid,
-                                        AppInstanceToken = aitsResult.Data.Token
-                                    };
-                                }
-                                else
-                                {
-                                    r.Code = 103;
-                                    r.Message = "实例token置换失败:"+ aitsResult.ErrorMsg;
-                                }
-                            }
-                            else
-                            {
-                                r.Code = 103;
-                                r.Message = "App验证未通过";
-                            }
-                        }
-                        else
-                        {
-                            if (appinstanceid > 0)
-                            {
-                                //记录实例服务特征数据
-                                appService.RecordAppService(appservice, appinstanceid);
-                            }
-                        }
-                    }
-                }
-                else
-                {
-                    r.Code = 103;
-                    r.Message = "App无服务数据";
-                }
-            }
-            else
-            {
-                r.Code = 101;
-                r.Message = "AppId不能为0";
-            }           
-            return r;
-        }
-        [HttpPost]
-        public TransactionResult<List<Security.Service.AppService>> GetAuthority(int appid)
-        {
-            var r = new TransactionResult<List<Security.Service.AppService>>();
-            if (appid == 0)
-            {
-                r.Code = 103;
-                r.Message = "AppId不能为0";
-            }
-            if (appid > 0)
-            {
-                var asResult = appService.GetAuthority(appid);
-                if (asResult.ActionResult && asResult.HavingData)
-                {
-                    r.Data = asResult.Data;
-                }
-                else
-                {
-                    r.Code = 0;
-                    r.Message = "App无授权数据";
-                }
-            }
-            return r;
-        }
-        [HttpPost]
-        public TransactionResult<int> UpdateAppService(int appinstanceid,int appid)
-        {
-            TransactionResult<int> r = new TransactionResult<int>();
-            if (appinstanceid > 0)
-            {
-                var updateResult = appService.Update(appinstanceid, appid);
-                if (updateResult.ActionResult)
-                {
-                    r.Code = updateResult.Data ? 0 : 103;
-                    r.Message = updateResult.Data ? "" : "服务数据更新失败";
-                }
+                r.Data = serviceResult.Data;
             }
             else
             {
                 r.Code = 101;
                 r.Message = "AppInstanceId不能为0";
+            }
+            return r;
+        }
+        [HttpPost]
+        [Desc("GetAppService", "获取指定AppService", "根据主键获取数据")]
+        public TransactionResult<Security.Service.AppService> GetAppService(int appServiceId)
+        {
+            TransactionResult<Security.Service.AppService> r = new TransactionResult<Security.Service.AppService>();
+            var serviceResult = appService.Get(appServiceId);
+            if (serviceResult.ActionResult && serviceResult.HavingData)
+            {
+                r.Data = serviceResult.Data;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = "暂无数据";
+            }
+            return r;
+        }
+        [HttpPost]
+        [Desc("AddAppService", "添加AddAppService", "")]
+        public TransactionResult<Security.Service.AppService> AddAppService(Security.Service.AppService info)
+        {
+            TransactionResult<Security.Service.AppService> r = new TransactionResult<Security.Service.AppService>();
+            var serviceResult = appService.Create(info);
+            if (serviceResult.ActionResult&&serviceResult.HavingData)
+            {
+                r.Data = serviceResult.Data;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = "暂无数据";
+            }
+            return r;
+        }
+        [HttpPost]
+        [Desc("UpdateAppService", "更新AppService", "根据主键更新数据")]
+        public TransactionResult<Boolean> UpdateAppService(Security.Service.AppService info)
+        {
+            TransactionResult<Boolean> r = new TransactionResult<Boolean>();
+            var updateResult = appService.UpdateByID(info);
+            if (updateResult.ActionResult)
+            {
+                r.Data = updateResult.Data;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = "暂无数据";
             }
             return r;
         }

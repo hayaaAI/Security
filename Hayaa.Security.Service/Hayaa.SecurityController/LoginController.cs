@@ -1,6 +1,7 @@
 ﻿using Hayaa.BaseModel.Model;
 using Hayaa.Security.Service;
 using Hayaa.ServicePlatform.Client;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,11 +9,12 @@ using System.Text;
 
 namespace Hayaa.SecurityController
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     public class LoginController : Controller
     {
         private LoginService loginService = PlatformServiceFactory.Instance.CreateService<LoginService>(AppRoot.GetDefaultAppUser());
         [HttpPost("{loginkey?}/{pwd?}")]
+        [EnableCors("any")]
         public TransactionResult<String> Login(String loginkey, String pwd)
         {
             var r = new TransactionResult<String>();
@@ -29,6 +31,7 @@ namespace Hayaa.SecurityController
             return r;
         }
         [HttpPost]
+        [EnableCors("any")]
         public TransactionResult<Boolean> IsLogin()
         {
             var r = new TransactionResult<Boolean>();
@@ -46,6 +49,7 @@ namespace Hayaa.SecurityController
             return r;
         }
         [HttpPost("{mobile?}/{code?}")]
+        [EnableCors("any")]
         public TransactionResult<String> MobileLogin(String mobile, String code)
         {
             var r = new TransactionResult<String>();
@@ -62,6 +66,7 @@ namespace Hayaa.SecurityController
             return r;
         }
         [HttpPost("{key?}/{pwd?}/{userId?}")]
+        [EnableCors("any")]
         public TransactionResult<Boolean> Reg(String key, String pwd,int userId)
         {
             var r = new TransactionResult<Boolean>();

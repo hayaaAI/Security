@@ -32,7 +32,8 @@ namespace Hayaa.Security.Service
         /// </summary>
         /// <param name="data">服务实例的功能数据</param>
         /// <returns></returns>
-        FunctionOpenResult<bool> Add(List<AppService> data,int appInstanceId);
+        FunctionOpenResult<bool> Add(List<AppService> data,int appInstanceId);      
+
         /// <summary>
         /// 依据一个实例的服务功能更新数据
         /// 未存在的添加，可匹配的不变，找不到匹配功能的已有数据进行标识
