@@ -4,7 +4,7 @@ EXPOSE 10821
 
 FROM microsoft/dotnet:2.1-sdk AS build
 WORKDIR /src
-COPY Hayaa.ScanServiceSite/Hayaa.ScanServiceSite.csproj Hayaa.ScanServiceSite/
+COPY ${WORKSPACE}/Hayaa.ScanServiceSite/Hayaa.ScanServiceSite.csproj Hayaa.ScanServiceSite/
 RUN dotnet restore Hayaa.ScanServiceSite/Hayaa.ScanServiceSite.csproj  -s http://nexus.xieqj.net/repository/nuget-group/ -s https://api.nuget.org/v3/index.json
 COPY . .
 WORKDIR /src/Hayaa.ScanServiceSite
