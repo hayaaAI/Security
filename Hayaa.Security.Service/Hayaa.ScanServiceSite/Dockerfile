@@ -1,4 +1,4 @@
-﻿FROM microsoft/dotnet:2.1-aspnetcore-runtime AS base
+﻿FROM microsoft/dotnet AS base
 WORKDIR /app
 EXPOSE 10821
 COPY . .
