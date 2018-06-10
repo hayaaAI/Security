@@ -12,11 +12,7 @@ namespace Hayaa.Security.Service.Dao
     internal partial class AppFunctionDal : CommonDal
     {
         private static String con = ConfigHelper.Instance.GetConnection(DefineTable.DatabaseName);
-        internal static int Add(AppFunction info)
-        {
-            string sql = "insert into AppFunction(FunctionName,PathName,Title,Status,AppServiceId) values(@FunctionName,@PathName,@Title,@Status,@AppServiceId)";
-            return Insert<AppFunction>(con, sql, info);
-        }
+       
 
       
 

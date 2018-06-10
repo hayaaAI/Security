@@ -117,7 +117,6 @@ namespace Hayaa.Security.Service
             }
             return r;
         }
-
         public FunctionOpenResult<bool> Add(List<AppService> data, int appInstanceId)
         {
             var r = new FunctionOpenResult<bool>();
@@ -133,8 +132,7 @@ namespace Hayaa.Security.Service
                 r.Data = true;
             }
             return r;
-        }
-
+        }       
         public FunctionOpenResult<bool> Update( int appInstanceId,int appId)
         {
             Rel_AppInstance_AppService raas= Rel_AppInstance_AppServiceDal.GetByAppInstanceId(appInstanceId);
@@ -257,6 +255,24 @@ namespace Hayaa.Security.Service
                         });
                     }
                 }
+            }
+            return r;
+        }
+        public FunctionListResult<AppService> Add(List<AppService> data)
+        {
+            var r = new FunctionListResult<AppService>();
+            if (data != null)
+            {
+                data.ForEach(ap => {
+                  ap.AppServiceId=AppServiceDal.Add(ap);
+                    if (ap.AppFunctions != null)
+                    {
+                        ap.AppFunctions.ForEach(af => {
+                            af.AppFuntionId = AppFunctionDal.Add(af);
+                        });
+                    }
+                });
+                r.Data = data;
             }
             return r;
         }

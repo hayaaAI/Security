@@ -15,7 +15,8 @@ namespace Hayaa.SecurityController
         private LoginService loginService = PlatformServiceFactory.Instance.CreateService<LoginService>(AppRoot.GetDefaultAppUser());
         [HttpPost("{loginkey?}/{pwd?}")]
         [EnableCors("any")]
-        public TransactionResult<String> Login(String loginkey, String pwd)
+        [Desc("WorkerLogin", "企业用户登陆", "")]
+        public TransactionResult<String> WorkerLogin(String loginkey, String pwd)
         {
             var r = new TransactionResult<String>();
            var lsReulst= loginService.Login(loginkey, pwd);
@@ -32,7 +33,8 @@ namespace Hayaa.SecurityController
         }
         [HttpPost]
         [EnableCors("any")]
-        public TransactionResult<Boolean> IsLogin()
+        [Desc("WorkerIsLogin", "企业用户登陆状态判断", "根据登陆会话判断登录状态")]
+        public TransactionResult<Boolean> WorkerIsLogin()
         {
             var r = new TransactionResult<Boolean>();
             //var lsReulst = loginService.IsLogin();
@@ -50,7 +52,8 @@ namespace Hayaa.SecurityController
         }
         [HttpPost("{mobile?}/{code?}")]
         [EnableCors("any")]
-        public TransactionResult<String> MobileLogin(String mobile, String code)
+        [Desc("WorkerMobileLogin", "企业用户手机登陆", "根据手机验证码登陆")]
+        public TransactionResult<String> WorkerMobileLogin(String mobile, String code)
         {
             var r = new TransactionResult<String>();
             var lsReulst = loginService.MobileLogin(mobile, code);
@@ -67,7 +70,8 @@ namespace Hayaa.SecurityController
         }
         [HttpPost("{key?}/{pwd?}/{userId?}")]
         [EnableCors("any")]
-        public TransactionResult<Boolean> Reg(String key, String pwd,int userId)
+        [Desc("WorkerReg", "企业用户注册", "")]
+        public TransactionResult<Boolean> WorkerReg(String key, String pwd,int userId)
         {
             var r = new TransactionResult<Boolean>();
             var lsReulst = loginService.Reg(key, pwd, userId);

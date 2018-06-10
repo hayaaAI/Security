@@ -9,7 +9,11 @@ namespace Hayaa.Security.Service.Dao
 {
     internal partial class AppServiceDal 
     {
-
+        internal static int Add(AppService info)
+        {
+            string sql = "insert into AppService(Name,Title,AppId,Status) select @Name,@Title,@AppId,@Status  from DUAL where not exists(select AppServiceId from AppService where Name=@Name);select @@IDENTITY;";
+            return InsertWithReturnID<AppService, int>(con, sql, info);
+        }
         internal static int SigningNoMatching(int appServiceId)
         {
             string sql = "update AppService set  Status=2 where AppServiceId=@AppServiceId";

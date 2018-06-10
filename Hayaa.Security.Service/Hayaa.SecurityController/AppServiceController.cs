@@ -18,11 +18,28 @@ namespace Hayaa.SecurityController
         private AppTokenService appTokenService = PlatformServiceFactory.Instance.CreateService<AppTokenService>(AppRoot.GetDefaultAppUser());
         private AppInstanceTokenService appInstanceTokenService = PlatformServiceFactory.Instance.CreateService<AppInstanceTokenService>(AppRoot.GetDefaultAppUser());
         [HttpPost]
-        [Desc("GetAppServiceByAppId", "获取app的服务列表","根据appId")]
-        public TransactionResult<Security.Service.AppService> GetAppServiceByAppId(int appId)
+        [Desc("AutoCreate", "自动添加服务数据", "")]
+        public TransactionResult<List<Security.Service.AppService>> AutoCreate(List<Security.Service.AppService> data)
         {
-            TransactionResult<Security.Service.AppService> r = new TransactionResult<Security.Service.AppService>();
-            var serviceResult = appService.Get(appId);
+            var r = new TransactionResult<List<Security.Service.AppService>>();
+            var addResult = appService.Add(data);
+            if (addResult.ActionResult && addResult.HavingData)
+            {
+                r.Data = addResult.Data;
+            }
+            else
+            {
+                r.Code = 101;
+                r.Message = "AppId不能为0";
+            }
+            return r;
+        }
+        [HttpPost]
+        [Desc("GetAppServiceByAppId", "获取app的服务列表", "根据appId获取app的服务列表")]
+        public TransactionResult<List<Security.Service.AppService>> GetAppServiceByAppId(int appId)
+        {
+            var r = new TransactionResult<List<Security.Service.AppService>>();
+            var serviceResult = appService.GetList(new AppServiceSearchPamater() { AppId = appId });
             if (serviceResult.ActionResult)
             {
                 r.Data = serviceResult.Data;
@@ -57,7 +74,7 @@ namespace Hayaa.SecurityController
         {
             TransactionResult<Security.Service.AppService> r = new TransactionResult<Security.Service.AppService>();
             var serviceResult = appService.Create(info);
-            if (serviceResult.ActionResult&&serviceResult.HavingData)
+            if (serviceResult.ActionResult && serviceResult.HavingData)
             {
                 r.Data = serviceResult.Data;
             }

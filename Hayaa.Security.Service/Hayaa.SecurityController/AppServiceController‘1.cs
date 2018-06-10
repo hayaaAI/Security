@@ -14,6 +14,7 @@ namespace Hayaa.SecurityController
     public partial class AppServiceController
     {
         [HttpPost]
+        [Desc("AddAppToken", "添加app的token", "")]
         public TransactionResult<AppToken> AddAppToken(AppToken info)
         {
             var r = new TransactionResult<AppToken>();
@@ -32,6 +33,7 @@ namespace Hayaa.SecurityController
             return r;
         }
         [HttpPost]
+        [Desc("EditAppToken", "编辑app的token", "根据主键更新数据")]
         public TransactionResult<Boolean> EditAppToken(AppToken info)
         {
             var r = new TransactionResult<Boolean>();
@@ -50,6 +52,7 @@ namespace Hayaa.SecurityController
             return r;
         }
         [HttpPost]
+        [Desc("GetAppToken", "获取App的token", "根据appId获取指定的token")]
         public TransactionResult<AppToken> GetAppToken(int appid)
         {
             var r = new TransactionResult<AppToken>();

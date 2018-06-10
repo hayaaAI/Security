@@ -28,6 +28,12 @@ namespace Hayaa.Security.Service
         /// <returns></returns>
         FunctionOpenResult<bool> RecordAppService(List<AppService> data, int appInstanceId);
         /// <summary>
+        /// 自动添加服务与功能数据
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        FunctionListResult<AppService> Add(List<AppService> data);
+        /// <summary>
         /// 依据一个实例的服务功能添加数据
         /// </summary>
         /// <param name="data">服务实例的功能数据</param>
