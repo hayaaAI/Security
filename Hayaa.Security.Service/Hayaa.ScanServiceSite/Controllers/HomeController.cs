@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -30,51 +31,65 @@ namespace Hayaa.AppScanServiceSite.Controllers
         {
             return "home";
         }
+        [HttpPost]
+        [EnableCors("any")]
+        public void Unload()
+        {
+            AppDomain.Unload(AppDomain.CurrentDomain);
+        }
         // POST api/values
-        [HttpPost]      
+        [HttpPost]
         [EnableCors("any")]
         public IActionResult UploadDll(IFormCollection files)
         {
-            var filePath = Path.GetTempFileName();      
-            for (var i = 0; i < files.Files.Count; i++)
+            List<String> fileList = new List<string>();
+
+
+            var file = files.Files[0];
+            var path = Path.GetTempPath()+DateTime.Now.ToString("yyyyMMddHHmmss");
+            Directory.CreateDirectory(path);
+            String filePath = "";
+            if (file.Length > 0)
             {
-                var file = files.Files[i];
-                if (file.Length > 0)
+                filePath = path + @"\" + file.FileName;
+                using (var stream = new FileStream(filePath, FileMode.Create))
                 {
-                    using (var stream = new FileStream(filePath, FileMode.Create))
-                    {
-                        file.CopyTo(stream);
-                    }
+                    file.CopyTo(stream);
                 }
             }
-            List<AppService> list = GetAppComponentService(filePath);
-            return Ok(new {  list= list });
-        }       
-        private List<AppService> GetAppComponentService(String filePath)
+            List<AppService> list = GetAppComponentService(path, filePath, file.FileName.Replace(".zip",""));
+            return Ok(new { list = list });
+        }
+        private List<AppService> GetAppComponentService(String path, String file,String targetDic)
         {
             List<AppService> list = new List<AppService>();
-            Assembly assembly = Assembly.LoadFile(filePath);
+            ZipFile.ExtractToDirectory(file, path);
+            List<String> fileList = Directory.GetFiles(path+@"\"+ targetDic).ToList();           
+            String controllFile = fileList.ToList().FindLast(f => f.Contains("Controller.dll"));
+            if (String.IsNullOrEmpty(controllFile)) return list;
+            Assembly assembly = Assembly.LoadFrom(controllFile);
             List<Type> typeList = assembly.GetTypes().ToList();
             typeList.ForEach(t =>
             {
-            AppService appService = new AppService() { AppFunctions = new List<AppFunction>() };
+                AppService appService = new AppService() { AppFunctions = new List<AppFunction>() };
                 list.Add(appService);
-            if (t.Name.Contains("Controller"))
-            {
-                appService.Name = t.Name;
-                appService.Title = t.Name;
-                t.GetMethods().ToList().ForEach(m=>{
-                    DescAttribute desc =m.GetCustomAttribute(typeof(DescAttribute)) as DescAttribute;
-                    if (desc != null)
+                if (t.Name.Contains("Controller"))
+                {
+                    appService.Name = t.Name;
+                    appService.Title = t.Name;
+                    t.GetMethods().ToList().ForEach(m =>
                     {
-                        appService.AppFunctions.Add(new AppFunction()
+                        DescAttribute desc = m.GetCustomAttribute(typeof(DescAttribute)) as DescAttribute;
+                        if (desc != null)
                         {
-                            Title=desc.Title,
-                            FunctionName = m.Name,
-                            PathName = m.Name.ToLower()
-                        });
-                    }
-                });
+                            appService.AppFunctions.Add(new AppFunction()
+                            {
+                                Title = desc.Title,
+                                FunctionName = m.Name,
+                                PathName = m.Name.ToLower()
+                            });
+                        }
+                    });
                 }
             });
             return list;
