@@ -1,6 +1,7 @@
 package hayaa.scan.site;
 
 import hayaa.basemodel.model.ServiceDescDocment;
+import hayaa.common.DateTimeHelper;
 import org.apache.tomcat.jni.Directory;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.util.StringUtils;
@@ -37,18 +38,20 @@ public class HomeController {
     public List<AppService> uploadDll(@RequestParam("file") MultipartFile file,
                                       RedirectAttributes redirectAttributes) {
         Properties props = System.getProperties();
-        String baseDirectory = props.getProperty("user.dir");
+        String baseDirectory = props.getProperty("user.dir")+ "/jars/"+DateTimeHelper.getTimeToken()+"/";
+        File newDic=new File(baseDirectory);
+        newDic.mkdir();
         List<AppService> result = null;
         try {
-            File targetFile = new File(baseDirectory + "/jars/");
-            result = getAppComponentService(file.getInputStream(), targetFile, baseDirectory + "/jars/");
+            File targetFile = new File(baseDirectory);
+            result = getAppComponentService(file.getInputStream(), targetFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
         return result;
     }
 
-    private List<AppService> getAppComponentService(InputStream file, File unpackDic, String targetDic) {
+    private List<AppService> getAppComponentService(InputStream file, File unpackDic) {
         List<AppService> list = new ArrayList<>();
         try {
             ZipUtil.unpack(file, unpackDic);
@@ -56,8 +59,8 @@ public class HomeController {
             e.printStackTrace();
             return list;
         }
-        File dic = new File(targetDic + "/BOOT-INF/lib");
-        JarLoaderUtil.loadJarPath(targetDic + "/BOOT-INF/lib");
+        File dic = new File(unpackDic.toString() + "/BOOT-INF/lib");
+        JarLoaderUtil.loadJarPath(unpackDic.toString() + "/BOOT-INF/lib");
         File[] fileList = dic.listFiles();
         if (fileList != null) {
             for (int i = 0; i < fileList.length; i++) {
@@ -85,8 +88,9 @@ public class HomeController {
                             String className = jarEntry.getName().replace("BOOT-INF/classes/", "");
                             className = className.replace("/", ".").replace(".class", "");
                             myClass = Class.forName(className);
-                            appService.setName(className);
-                            appService.setTitle(className);
+                            String[] arr=  className.split("\\.");
+                            appService.setName(arr[arr.length-1]);
+                            appService.setTitle(arr[arr.length-1]);
                         } catch (ClassNotFoundException e) {
                             e.printStackTrace();
                         }
