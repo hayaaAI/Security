@@ -1,4 +1,4 @@
-FROM ${dockerhos}/java-centos AS base
+FROM dstore.xieqj.cn:3001/java-centos AS base
 WORKDIR /app
 EXPOSE 10822
 COPY . .
