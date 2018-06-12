@@ -48,8 +48,16 @@
             <artifactId>zt-zip</artifactId>
             <version>1.13</version>
         </dependency>
-
     </dependencies>
+    <repositories>
+        <repository>
+            <id>hayaa-group</id>
+            <url>http://nexus.xieqj.net/repository/hayaa-group/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
     <build>
         <plugins>
             <plugin>
