@@ -9,7 +9,8 @@ namespace Hayaa.Security.Service.Config
         /// <summary>
         /// SecurityService组件的ID
         /// </summary>
-        public readonly static int SecurityServiceComponetID = 10011;
-        public readonly static String DatabaseName = "HayaaSecurity";
+        public const int SecurityServiceComponetID = 10011;
+        public const String DatabaseName = "HayaaSecurity";
+        public const String CacheName = "default";
     }
 }

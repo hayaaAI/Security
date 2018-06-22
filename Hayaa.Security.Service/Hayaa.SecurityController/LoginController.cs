@@ -13,13 +13,51 @@ namespace Hayaa.SecurityController
     public class LoginController : Controller
     {
         private LoginService loginService = PlatformServiceFactory.Instance.CreateService<LoginService>(AppRoot.GetDefaultAppUser());
+        
         [HttpPost("{loginkey?}/{pwd?}")]
         [EnableCors("any")]
-        [Desc("WorkerLogin", "企业用户登陆", "")]
+        [Desc("WorkerUserLogin", "企业用户无授权登陆", "")]
+        public TransactionResult<String> WorkerUserLogin(String loginkey, String pwd)
+        {
+            var r = new TransactionResult<String>();
+            var lsReulst = loginService.Login(loginkey, pwd);
+            if (lsReulst.ActionResult && lsReulst.HavingData)
+            {
+                r.Data = lsReulst.Data.Token;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = lsReulst.ErrorMsg;
+            }
+            return r;
+        }
+        [HttpPost]
+        [EnableCors("any")]
+        [Desc("WorkerUserIsLogin", "企业用户登陆状态判断", "根据登陆会话判断登录状态")]
+        public TransactionResult<Boolean> WorkerUserIsLogin(String authtoken)
+        {
+            var r = new TransactionResult<Boolean>();
+            var lsReulst = loginService.WorkerIsLogin(authtoken);
+            if (lsReulst.ActionResult)
+            {
+                r.Data = lsReulst.Data;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = lsReulst.ErrorMsg;
+            }
+            r.Data = true;
+            return r;
+        }
+        [HttpPost("{loginkey?}/{pwd?}")]
+        [EnableCors("any")]
+        [Desc("WorkerLogin", "企业用户授权验证登陆", "")]
         public TransactionResult<String> WorkerLogin(String loginkey, String pwd)
         {
             var r = new TransactionResult<String>();
-           var lsReulst= loginService.Login(loginkey, pwd);
+            var lsReulst = loginService.Login(loginkey, pwd);
             if (lsReulst.ActionResult && lsReulst.HavingData)
             {
                 r.Data = lsReulst.Data.Token;
@@ -34,19 +72,19 @@ namespace Hayaa.SecurityController
         [HttpPost]
         [EnableCors("any")]
         [Desc("WorkerIsLogin", "企业用户登陆状态判断", "根据登陆会话判断登录状态")]
-        public TransactionResult<Boolean> WorkerIsLogin()
+        public TransactionResult<Boolean> WorkerIsLogin(String authtoken)
         {
             var r = new TransactionResult<Boolean>();
-            //var lsReulst = loginService.IsLogin();
-            //if (lsReulst.ActionResult && lsReulst.HavingData)
-            //{
-            //    r.Data = lsReulst.Data.Token;
-            //}
-            //else
-            //{
-            //    r.Code = 103;
-            //    r.Message = lsReulst.ErrorMsg;
-            //}
+            var lsReulst = loginService.WorkerIsLogin(authtoken);
+            if (lsReulst.ActionResult)
+            {
+                r.Data = lsReulst.Data;
+            }
+            else
+            {
+                r.Code = 103;
+                r.Message = lsReulst.ErrorMsg;
+            }
             r.Data = true;
             return r;
         }

@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Hayaa.BaseModel" Version="1.0.0.16" />
+    <PackageReference Include="Hayaa.CacheKeyStatic" Version="1.0.0.3" />
+    <PackageReference Include="Hayaa.Redis.Client" Version="1.0.0.1" />
+    <PackageReference Include="Hayaa.Security.Service" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>
