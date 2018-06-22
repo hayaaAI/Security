@@ -14,6 +14,16 @@ namespace Hayaa.Security.Service
         /// <param name="pwd">密码</param>
         /// <returns></returns>
         FunctionResult<JobToken> Login(String loginKey, String pwd);
+        FunctionOpenResult<Boolean> WorkerIsLogin(String authtoken);
+        /// <summary>
+        /// 无需授权的用户登陆
+        /// </summary>
+        /// <param name="loginKey"></param>
+        /// <param name="pwd"></param>
+        /// <returns></returns>
+        FunctionResult<LoginToken> UserLogin(String loginKey, String pwd);
+        FunctionOpenResult<Boolean> UserIsLogin(String authtoken);
+     
         /// <summary>
         /// 使用手机号和验证码登陆
         /// </summary>
@@ -28,5 +38,6 @@ namespace Hayaa.Security.Service
         /// <param name="pwd">密码</param>
         /// <returns></returns>
         FunctionOpenResult<Boolean> Reg(string key, string pwd,int userId);
+       
     }
 }

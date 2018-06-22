@@ -12,6 +12,7 @@ namespace Hayaa.Security.Service
         public int JobId { set; get; }
         public int UserId { set; get; }
         public String Token { set; get; }
+        public DateTime EndTime { set; get; }
 
     }
 }
