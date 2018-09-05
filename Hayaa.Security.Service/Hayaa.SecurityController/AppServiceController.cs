@@ -7,10 +7,12 @@ using System.Collections.Generic;
 using Hayaa.ServicePlatform.Service;
 using System;
 using Hayaa.SecurityController.Model;
+using Hayaa.WorkerSecurity.Client;
 
 namespace Hayaa.SecurityController
 {
     [Route("api/[controller]/[action]")]
+    [UserAuthorityFilter]
     public partial class AppServiceController : Controller
     {
         private AppServiceService appService = PlatformServiceFactory.Instance.CreateService<AppServiceService>(AppRoot.GetDefaultAppUser());

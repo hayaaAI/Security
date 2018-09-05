@@ -1,6 +1,7 @@
 ﻿using Hayaa.BaseModel.Model;
 using Hayaa.Security.Service;
 using Hayaa.ServicePlatform.Client;
+using Hayaa.WorkerSecurity.Client;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Text;
 namespace Hayaa.SecurityController
 {
     [Route("api/[controller]/[action]")]
+    [UserAuthorityFilter]
     public  class AppFunctionController : Controller
     {
         private AppFuntionService service = PlatformServiceFactory.Instance.CreateService<AppFuntionService>(AppRoot.GetDefaultAppUser());
