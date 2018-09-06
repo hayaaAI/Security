@@ -1,4 +1,5 @@
 ﻿using Hayaa.BaseModel;
+using Hayaa.Common;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System;
@@ -23,7 +24,7 @@ namespace Hayaa.CompanyWebSecurity.Client
                 {
                     ActionResult = false,
                     Data = false,
-                    ErrorCode = 403,
+                    ErrorCode = ErrorCode.LoginFail,
                     ErrorMsg = "未登陆"
                 });
                 return;
@@ -34,7 +35,7 @@ namespace Hayaa.CompanyWebSecurity.Client
                 context.Result = new JsonResult(new FunctionOpenResult<bool>() {
                      ActionResult=false,
                       Data=false,
-                       ErrorCode=403,
+                       ErrorCode= ErrorCode.NoPermission,
                         ErrorMsg="未授权"
                 });
             }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Hayaa.CompanyWebSecurity.Client.Config
 {
-    class ClientConfig : ConfigContent
+  public  class ClientConfig : ConfigContent
     {
         public AppSettings AppSettings { set; get; }
         public ConnectionStrings ConnectionStrings { set; get; }

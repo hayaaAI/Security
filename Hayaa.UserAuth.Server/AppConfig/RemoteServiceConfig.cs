@@ -10,7 +10,7 @@ namespace Hayaa.UserAuth.Server.Config
     /// 服务配置类
     /// </summary>
     [Serializable]
-    internal class ServiceConfig: ConfigContent
+    public class ServiceConfig: ConfigContent
     {
        
         public AppSettings AppSettings { set; get; }

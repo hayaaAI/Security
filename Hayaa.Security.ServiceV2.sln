@@ -15,25 +15,27 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{D5802940-8
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "iteration2", "iteration2", "{07EF9547-15D3-43FF-86C2-24E0348DAF4B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.CompanyWebSecurity.Client", "Hayaa.Security.Service\Client\C#\Hayaa.WebSecurity.Client\Hayaa.CompanyWebSecurity.Client.csproj", "{CD9EF077-6B76-4D61-AFA1-6E68AFA5202F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.CompanyWebSecurity.Client", "Hayaa.Security.Service\Client\C#\Hayaa.WebSecurity.Client\Hayaa.CompanyWebSecurity.Client.csproj", "{CD9EF077-6B76-4D61-AFA1-6E68AFA5202F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.UserAuth.Service", "Hayaa.UserAuth.Service\Hayaa.UserAuth.Service.csproj", "{519A1AD0-847E-4989-9AFA-B6ECDB1D4C11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.UserAuth.Service", "Hayaa.UserAuth.Service\Hayaa.UserAuth.Service.csproj", "{519A1AD0-847E-4989-9AFA-B6ECDB1D4C11}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.UserAuth.Service.Core", "Hayaa.UserAuth.Service.Core\Hayaa.UserAuth.Service.Core.csproj", "{7EF2C457-11A6-4762-92EB-C0F3A28B5698}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.UserAuth.Service.Core", "Hayaa.UserAuth.Service.Core\Hayaa.UserAuth.Service.Core.csproj", "{7EF2C457-11A6-4762-92EB-C0F3A28B5698}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Rpc", "Rpc", "{FC946663-C931-47E2-B8CC-9136A94034E0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.UserAuth.Server", "Hayaa.UserAuth.Server\Hayaa.UserAuth.Server.csproj", "{27C2FA8C-995B-4DE6-A736-A333D3E0013C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.UserAuth.Server", "Hayaa.UserAuth.Server\Hayaa.UserAuth.Server.csproj", "{27C2FA8C-995B-4DE6-A736-A333D3E0013C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebSite", "WebSite", "{D34BA556-C8B5-4DAA-81C4-ED86E266A60C}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Controller", "Controller", "{5F39196B-7ECC-4A15-98C5-B23443966309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.UserAuth.Controller", "Hayaa.UserAuth.Controller\Hayaa.UserAuth.Controller.csproj", "{8EC39469-8C5C-4839-873E-E85E12B92EF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.UserAuth.Controller", "Hayaa.UserAuth.Controller\Hayaa.UserAuth.Controller.csproj", "{8EC39469-8C5C-4839-873E-E85E12B92EF1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sites", "Sites", "{AAC347DA-08EA-4893-914D-F7D3552996F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hayaa.UserAuth.Site", "Hayaa.UserAuth.Site\Hayaa.UserAuth.Site.csproj", "{AA9A963B-7A62-45BE-B710-9D0D03771934}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.UserAuth.Site", "Hayaa.UserAuth.Site\Hayaa.UserAuth.Site.csproj", "{AA9A963B-7A62-45BE-B710-9D0D03771934}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +67,10 @@ Global
 		{AA9A963B-7A62-45BE-B710-9D0D03771934}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA9A963B-7A62-45BE-B710-9D0D03771934}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA9A963B-7A62-45BE-B710-9D0D03771934}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -81,6 +87,7 @@ Global
 		{8EC39469-8C5C-4839-873E-E85E12B92EF1} = {5F39196B-7ECC-4A15-98C5-B23443966309}
 		{AAC347DA-08EA-4893-914D-F7D3552996F9} = {D34BA556-C8B5-4DAA-81C4-ED86E266A60C}
 		{AA9A963B-7A62-45BE-B710-9D0D03771934} = {AAC347DA-08EA-4893-914D-F7D3552996F9}
+		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B} = {D5802940-85D7-422D-B738-7C4193243A13}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80E9C2CE-AE56-4F58-B547-762369DB8908}

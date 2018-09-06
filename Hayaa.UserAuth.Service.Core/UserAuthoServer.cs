@@ -25,6 +25,7 @@ namespace Hayaa.UserAuth.Service.Core
             }
             //验证口令
             UserSession loginSession= CompanyLoginDal.Get(loginKey, pwd);
+            if (loginSession == null) loginSession = new UserSession();
             loginSession.SessionKey = sessionKey;
             if (loginSession.UserId > 0)
             {

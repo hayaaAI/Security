@@ -10,7 +10,7 @@ namespace Hayaa.UserAuth.Service.Core.Config
     /// 服务配置类
     /// </summary>
     [Serializable]
-    internal class ServiceConfig: ConfigContent
+    public class ServiceConfig: ConfigContent
     {
         public RedisClientConfig CacheConfig { set; get; }
         public AppSettings AppSettings { set; get; }

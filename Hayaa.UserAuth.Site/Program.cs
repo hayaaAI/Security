@@ -17,8 +17,17 @@ namespace Hayaa.UserAuth.Site
             CreateWebHostBuilder(args).Build().Run();
         }
 
-        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args)
+        {
+            IWebHostBuilder webHostBuilder= WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>();
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("hosting.json", optional: true)
+                .AddCommandLine(args)
+                .Build();
+            webHostBuilder.UseConfiguration(config);
+            return webHostBuilder;
+        }
     }
 }
