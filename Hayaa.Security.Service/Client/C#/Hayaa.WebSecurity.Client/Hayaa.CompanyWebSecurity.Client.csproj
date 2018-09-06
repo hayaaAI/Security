@@ -12,6 +12,7 @@
     <PackageIconUrl>http://r.xieqj.net/r/ico/hayaaia.ico</PackageIconUrl>
     <PackageTags>WebSecurity</PackageTags>
     <RootNamespace>Hayaa.WebSecurity.Client</RootNamespace>
+    <Version>1.0.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
