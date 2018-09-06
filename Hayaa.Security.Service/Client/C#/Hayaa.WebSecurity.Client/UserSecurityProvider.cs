@@ -17,6 +17,7 @@ namespace Hayaa.CompanyWebSecurity.Client
         public static int BaseAuth(String sessionKey)
         {
             int result = 0;
+            if (String.IsNullOrEmpty(sessionKey)) return result;
             var info = g_RedisService.Get<UserSession>(DefineTable.CacheName, String.Format(UserAuthorityCacheKey.AuthorityCacheKey, sessionKey));
             if (info != null)
             {
