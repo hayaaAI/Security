@@ -15,7 +15,7 @@ namespace Hayaa.UserAuth.Service.Core
             UserSession userSession = UserSessionDal.Get(sessionKey);
             int sessionId = (userSession==null)?0:userSession.SessionId;
             //先检查失败次数
-            LoginAudit loginAudit =(sessionId>0)? LoginAuditDal.Get(sessionId):new LoginAudit();
+            LoginAudit loginAudit =(sessionId>0)? LoginAuditDal.Get(sessionId): LoginAuditDal.Add(new LoginAudit());
             if ((loginAudit != null) && (loginAudit.FailTotal >= 3))
             {
                 result.ActionResult = false;
@@ -47,11 +47,7 @@ namespace Hayaa.UserAuth.Service.Core
             {
                 loginSession.Status = 1;
                 UserSessionDal.Add(loginSession);
-            }
-            if (loginAudit == null)
-            {              
-                LoginAuditDal.Add(loginAudit);
-            }
+            }          
             return result;
         }
     }
