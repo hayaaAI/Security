@@ -46,6 +46,11 @@ namespace Hayaa.UserAuth.Site
             {
                 app.UseDeveloperExceptionPage();
             }
+            else
+            {
+                app.UseExceptionHandler("/Error");
+                app.UseHsts();
+            }
             app.UseCors("any");
             app.UseMvc();
         }

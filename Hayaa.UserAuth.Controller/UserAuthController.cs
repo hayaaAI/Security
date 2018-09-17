@@ -18,7 +18,7 @@ namespace Hayaa.UserAuth.Controller
         [HttpPost]
         [HttpGet]
         [EnableCors("any")]
-        public TransactionResult<String> CompanyUserLogin(string loginKey, string pwd, string sessionKey)
+        public TransactionResult<String> CompanyUserLogin([FromForm] string loginKey, [FromForm] string pwd, [FromForm] string sessionKey)
         {
             TransactionResult<String> result = new TransactionResult<String>();
             var serviceResult = userAuthoService.CompanyUserLogin(loginKey, pwd, sessionKey);
