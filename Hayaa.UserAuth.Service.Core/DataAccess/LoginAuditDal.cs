@@ -20,7 +20,7 @@ namespace Hayaa.UserAuth.Service.Core.DataAccess
 
         internal static LoginAudit Add(LoginAudit info)
         {
-            string sql = "insert into UserSession(SessionId,FailTotal) value(@SessionId,@FailTotal);select @@IDENTITY;";
+            string sql = "insert into LoginAudit(SessionId,FailTotal) value(@SessionId,@FailTotal);select @@IDENTITY;";
             info.LoginAuditId= InsertWithReturnID<LoginAudit, int>(con, sql, info);
             return info;
         }
