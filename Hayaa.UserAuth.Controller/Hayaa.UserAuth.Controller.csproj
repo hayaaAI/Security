@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Library</OutputType>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <ApplicationIcon />
+    <StartupObject />
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Hayaa.UserAuth.Service.Core\Hayaa.UserAuth.Service.Core.csproj" />
+    <ProjectReference Include="..\Hayaa.UserAuth.Service\Hayaa.UserAuth.Service.csproj" />
+  </ItemGroup>
+
+</Project>
