@@ -10,6 +10,10 @@ namespace Hayaa.CompanyWebSecurity.Client
 {
     public class UserAuthorityFilter : IActionFilter
     {
+        /// <summary>
+        /// 仅支持form格式数据提交
+        /// </summary>
+        /// <param name="context"></param>
         public void OnActionExecuted(ActionExecutedContext context)
         {
             bool isPost = context.HttpContext.Request.Method.ToLower().Equals("post");
