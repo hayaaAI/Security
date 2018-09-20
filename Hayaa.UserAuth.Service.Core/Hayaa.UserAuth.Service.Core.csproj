@@ -9,7 +9,7 @@
     <PackageReference Include="Hayaa.Common" Version="1.0.0.12" />
     <PackageReference Include="Hayaa.DataAccess" Version="1.0.0.10" />
     <PackageReference Include="Hayaa.Redis.ClientV2" Version="1.0.0" />
-    <PackageReference Include="Hayaa.RemoteConfig.Client" Version="1.0.0.8" />
+    <PackageReference Include="Hayaa.RemoteConfig.Client" Version="1.0.0.10" />
   </ItemGroup>
 
   <ItemGroup>
