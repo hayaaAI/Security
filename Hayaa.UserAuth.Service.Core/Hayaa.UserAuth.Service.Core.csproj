@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="Hayaa.CacheKeyStatic" Version="1.0.0.4" />
-    <PackageReference Include="Hayaa.Common" Version="1.0.0.11" />
+    <PackageReference Include="Hayaa.Common" Version="1.0.0.12" />
     <PackageReference Include="Hayaa.DataAccess" Version="1.0.0.10" />
     <PackageReference Include="Hayaa.Redis.ClientV2" Version="1.0.0" />
     <PackageReference Include="Hayaa.RemoteConfig.Client" Version="1.0.0.8" />
