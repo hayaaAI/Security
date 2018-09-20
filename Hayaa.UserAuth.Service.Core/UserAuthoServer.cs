@@ -34,6 +34,7 @@ namespace Hayaa.UserAuth.Service.Core
                 userSession = loginSession;
                 //添加会话缓存
                 RedisComponent.SaveCache<UserSession>(String.Format(UserAuthorityCacheKey.AuthorityCacheKey, sessionKey), loginSession);
+                result.Data = loginSession.SessionKey;
 
             }
             else
