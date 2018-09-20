@@ -26,7 +26,7 @@
           "group": "default",
           "interfaceName": "Hayaa.RemoteConfig.Service.IRemoteConfigService",
           "assemblyName": "Hayaa.RemoteConfig.ServiceV2",
-          "serverHost": "192.168.31.59",
+          "serverHost": "172.26.62.227",
           "serverPort": 10012
         }
       ],
