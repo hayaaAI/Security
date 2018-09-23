@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Hayaa.RemoteConfig.Client" Version="1.0.0" />
-    <PackageReference Include="Hayaa.RPC.Server" Version="1.0.0" />
+    <PackageReference Include="Hayaa.RemoteConfig.Client" Version="1.0.0.11" />
+    <PackageReference Include="Hayaa.RPC.Server" Version="1.0.0.8" />
   </ItemGroup>
 
 </Project>
