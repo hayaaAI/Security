@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.UserAuth.Site", "Haya
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.CompanyWebSecurity.Client", "Hayaa.Security.Service\Client\C#\Hayaa.WebSecurity.Client\Hayaa.CompanyWebSecurity.Client.csproj", "{B787DBAF-30B3-4F02-8E6E-876802CD9332}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Hayaa.CompanyWebSecurity.Client", "Hayaa.CompanyWebSecurity.Client\Hayaa.CompanyWebSecurity.Client.csproj", "{28960045-0813-4780-8DD3-EC50BED6722A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,10 +67,10 @@ Global
 		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B787DBAF-30B3-4F02-8E6E-876802CD9332}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B787DBAF-30B3-4F02-8E6E-876802CD9332}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B787DBAF-30B3-4F02-8E6E-876802CD9332}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B787DBAF-30B3-4F02-8E6E-876802CD9332}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28960045-0813-4780-8DD3-EC50BED6722A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28960045-0813-4780-8DD3-EC50BED6722A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28960045-0813-4780-8DD3-EC50BED6722A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28960045-0813-4780-8DD3-EC50BED6722A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -87,7 +87,7 @@ Global
 		{AAC347DA-08EA-4893-914D-F7D3552996F9} = {D34BA556-C8B5-4DAA-81C4-ED86E266A60C}
 		{AA9A963B-7A62-45BE-B710-9D0D03771934} = {AAC347DA-08EA-4893-914D-F7D3552996F9}
 		{9A828F6B-875F-4F0D-B4BC-7ECF3A9B265B} = {D5802940-85D7-422D-B738-7C4193243A13}
-		{B787DBAF-30B3-4F02-8E6E-876802CD9332} = {06DC218D-621C-45B1-B165-9DD541644BA9}
+		{28960045-0813-4780-8DD3-EC50BED6722A} = {06DC218D-621C-45B1-B165-9DD541644BA9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {80E9C2CE-AE56-4F58-B547-762369DB8908}
